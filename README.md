@@ -22,7 +22,8 @@ export ASPNETCORE_ENVIRONMENT=Development
 export ASPNETCORE_HTTPS_PORT=7143
 export ASPNETCORE_URLS='http://localhost:5080;https://localhost:7143'
 read -rs -p 'Senha temporária do laboratório: ' Laboratorio__Senha
-printf '\n'
+printf '
+'
 export Laboratorio__Senha
 dotnet run --project PortalTarefas.Web --no-launch-profile
 ```
@@ -75,8 +76,12 @@ HTTP 409 e a tela de edição pede recarregamento para obter a versão atual.
 ./tests/imagem.sh
 ```
 
-O script constrói uma imagem identificada pelo commit, inicia com conexão externa,
-verifica o Health Check e remove o contêiner temporário. Em uma implantação,
+O script constrói uma imagem identificada pelo commit e inicia o contêiner com
+configuração externa, acessível por uma porta local. O smoke test verifica a
+página de tarefas e a API. Liveness, readiness e a verificação da revisão da
+imagem usam a mesma instância. No GitHub Actions, o ambiente `teste-roteiro-8`
+registra a implantação temporária e publica o log como artefato. O contêiner
+é removido ao final da execução. Em uma implantação persistente,
 monte um volume com permissões para o usuário da imagem em `/data`, forneça
 `ConnectionStrings__Portal` pelo ambiente e configure HTTPS no proxy de entrada.
 Persista também as chaves do Data Protection em volume com acesso restrito caso

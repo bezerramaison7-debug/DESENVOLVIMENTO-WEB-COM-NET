@@ -35,8 +35,17 @@ jobs:
   imagem:
     needs: verificacao
     runs-on: ubuntu-24.04
+    environment:
+      name: teste-roteiro-8
     steps:
       - uses: actions/checkout@v4
-      - run: ./tests/imagem.sh
+      - name: Implantar e validar o contêiner de teste
+        shell: bash
+        run: ./tests/imagem.sh | tee "$RUNNER_TEMP/implantacao-roteiro-8.log"
         env:
           REVISAO: ${{ github.sha }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: implantacao-roteiro-8-${{ github.sha }}
+          path: ${{ runner.temp }}/implantacao-roteiro-8.log
+          if-no-files-found: error
