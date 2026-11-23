@@ -1,0 +1,8 @@
+{
+  "testes_browser": true,
+  "pipeline": true,
+  "navegador": "Chrome Headless Shell 145.0.7632.6",
+  "react": "19.1.1",
+  "vite": "7.3.8",
+  "revisao": "75905c2a67a7accfac983e5f3771d5f0b38f6e0d"
+}

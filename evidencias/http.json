@@ -1,0 +1,139 @@
+[
+  {
+    "teste": "R1 pipeline, binding, exceção, CORS",
+    "resultado": {
+      "comparacao": {
+        "aplicacao": "PortalTarefas",
+        "estado": "Ativo"
+      },
+      "binding": {
+        "id": 1,
+        "situacao": "Aberta",
+        "cliente": "laboratorio",
+        "tarefa": {
+          "id": 1,
+          "titulo": "Conferir documentação",
+          "descricao": "Revisar o manual",
+          "situacao": "Aberta",
+          "prioridade": "Normal",
+          "prazo": null,
+          "equipe": "A",
+          "versao": "be9a13e6-78a2-4e89-9528-64dced2fb6c3"
+        }
+      },
+      "falha": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.6.1",
+        "title": "An error occurred while processing your request.",
+        "status": 500,
+        "traceId": "00-dc22675892d3c760c14d82fb7a6fcc69-a21ba04f2feeeeb4-03"
+      },
+      "correlacao": "dc22675892d3c760c14d82fb7a6fcc69"
+    }
+  },
+  {
+    "teste": "R1 POST JSON válido e inválido",
+    "resultado": {
+      "local": "/api/tarefas/5",
+      "erros": {
+        "Titulo": [
+          "Informe o título."
+        ]
+      }
+    }
+  },
+  {
+    "teste": "R3 migrations, projeção e transação com rollback",
+    "resultado": {
+      "migrations": [
+        "20261123183353_Inicial",
+        "20261123183359_Identidade"
+      ],
+      "seed": 4,
+      "painel": {
+        "ef": [
+          {
+            "situacao": "Aberta",
+            "total": 4
+          }
+        ],
+        "ado": [
+          {
+            "situacao": "Aberta",
+            "total": 4
+          }
+        ],
+        "iguais": true
+      },
+      "auditoriasAntes": 0,
+      "auditoriasDepois": 1,
+      "conflito": "A tarefa mudou. Recarregue os dados antes de tentar novamente."
+    }
+  },
+  {
+    "teste": "R4 contrato REST",
+    "resultado": {
+      "paginaVazia": {
+        "itens": [],
+        "pagina": 1,
+        "tamanho": 10,
+        "total": 0
+      },
+      "filtros": {
+        "itens": [
+          {
+            "id": 3,
+            "titulo": "Revisar laboratório",
+            "situacao": "Concluida",
+            "prioridade": "Normal"
+          }
+        ],
+        "pagina": 1,
+        "tamanho": 10,
+        "total": 1
+      },
+      "recursoAusente": {
+        "type": "https://tools.ietf.org/html/rfc9110#section-15.5.5",
+        "title": "Tarefa inexistente.",
+        "status": 404,
+        "traceId": "00-2eb7a8f5c59c919c53394d29cb0e488a-609e91da2d3a7a5f-03"
+      },
+      "validacao": {
+        "Titulo": [
+          "Informe o título.",
+          "Use entre 3 e 100 caracteres."
+        ]
+      },
+      "location": "https://localhost:7143/api/tarefas/6",
+      "exclusao": 204
+    }
+  },
+  {
+    "teste": "R6 identidade e autorização",
+    "resultado": {
+      "anonimo": 401,
+      "usuarioOutraEquipe": 403,
+      "adminOutraEquipe": 204,
+      "perfilAutorizado": 200,
+      "cookieRevogado": 401,
+      "semCsrf": 400
+    }
+  },
+  {
+    "teste": "R7 retry, circuito e Health Checks",
+    "resultado": {
+      "tentativasTransitoria": 2,
+      "status400SemRetry": 1,
+      "chamadasAntesDoCircuito": 1,
+      "readinessFalha": 503,
+      "liveness": 200
+    }
+  },
+  {
+    "teste": "R7 carga limitada e cache",
+    "resultado": {
+      "http200": 5,
+      "http429": 3,
+      "cache": "mesmo conteúdo entre clientes anônimos e identificador trocado após criação"
+    }
+  }
+]

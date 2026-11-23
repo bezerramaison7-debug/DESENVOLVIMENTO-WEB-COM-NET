@@ -1,0 +1,5 @@
+@model Tarefa
+<h1>@Model.Titulo</h1>
+<p>@Model.Descricao</p>
+<dl><dt>Situação</dt><dd>@Model.Situacao</dd><dt>Prioridade</dt><dd>@Model.Prioridade</dd><dt>Equipe</dt><dd>@Model.Equipe</dd></dl>
+<a asp-action="Edit" asp-route-id="@Model.Id">Editar tarefa</a>

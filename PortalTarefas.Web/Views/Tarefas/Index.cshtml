@@ -1,0 +1,3 @@
+@model IReadOnlyList<Tarefa>
+<h1>Tarefas</h1>
+<ul class="tarefas">@foreach(var item in Model) { <partial name="_Resumo" model="item" /> }</ul>

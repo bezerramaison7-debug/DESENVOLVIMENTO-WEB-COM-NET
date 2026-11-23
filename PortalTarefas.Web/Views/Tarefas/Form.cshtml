@@ -1,0 +1,13 @@
+@model AtualizarTarefa
+@{ var acao = ViewContext.RouteData.Values["action"]?.ToString(); }
+<h1>@(acao == "Edit" ? "Editar tarefa" : "Cadastrar tarefa")</h1>
+<form asp-action="@acao" asp-route-id="@ViewContext.RouteData.Values["id"]" method="post">
+<div asp-validation-summary="ModelOnly"></div>
+<input asp-for="Versao" type="hidden" />
+<label asp-for="Titulo">Título</label><input asp-for="Titulo"><span asp-validation-for="Titulo"></span>
+<label asp-for="Descricao">Descrição</label><textarea asp-for="Descricao"></textarea><span asp-validation-for="Descricao"></span>
+<label asp-for="Prioridade">Prioridade</label><select asp-for="Prioridade"><option>Normal</option><option>Alta</option></select><span asp-validation-for="Prioridade"></span>
+<label asp-for="Situacao">Situação</label><select asp-for="Situacao"><option>Aberta</option><option value="Concluida">Concluída</option></select><span asp-validation-for="Situacao"></span>
+<label asp-for="Prazo">Prazo</label><input asp-for="Prazo" type="date"><span asp-validation-for="Prazo"></span>
+<button>Salvar</button>
+</form>

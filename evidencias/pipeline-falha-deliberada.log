@@ -1,0 +1,75 @@
+RESTORE .NET 10.0.404
+  Determining projects to restore...
+  Restored ./revisao-gate/PortalTarefas.Web/PortalTarefas.Web.csproj (in 219 ms).
+BUILD ASP.NET Core
+  PortalTarefas.Web -> ./revisao-gate/PortalTarefas.Web/bin/Release/net10.0/PortalTarefas.Web.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.37
+INSTALL Node v24.22.3 / npm 11.19.1
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+added 57 packages in 1s
+npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> portal-tarefas-frontend@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v7.3.8 building client environment for production...
+transforming...
+node_modules/react-router/dist/development/index.mjs (11:0): Module level directives cause errors when bundled, "use client" in "node_modules/react-router/dist/development/index.mjs" was ignored.
+node_modules/react-router/dist/development/dom-export.mjs (1:0): Module level directives cause errors when bundled, "use client" in "node_modules/react-router/dist/development/dom-export.mjs" was ignored.
+✓ 42 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.37 kB │ gzip:  0.26 kB
+dist/assets/index-DEigawJw.css    1.70 kB │ gzip:  0.76 kB
+dist/assets/index-D4fDzgub.js   233.86 kB │ gzip: 75.34 kB
+✓ built in 784ms
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> portal-tarefas-frontend@1.0.0 generate
+> node scripts/generate.mjs
+
+A valid HTTPS certificate is already present.
+TESTE transição HTTP para HTTPS
+TESTE contrato OpenAPI publicado
+Contrato da aplicação igual ao esquema do cliente.
+TESTE idempotência do seed após reinício
+Seed após reiniciar: [1, 2, 3, 4]
+TESTE de integração HTTP
+OK R1 pipeline, binding, exceção, CORS {'comparacao': {'aplicacao': 'PortalTarefas', 'estado': 'Ativo'}, 'binding': {'id': 1, 'situacao': 'Aberta', 'cliente': 'laboratorio', 'tarefa': {'id': 1, 'titulo': 'Conferir documentação', 'descricao': 'Revisar o manual', 'situacao': 'Aberta', 'prioridade': 'Normal', 'prazo': None, 'equipe': 'A', 'versao': 'e54bbe30-4618-46f8-a36d-97fa7613d723'}}, 'falha': {'type': 'https://tools.ietf.org/html/rfc9110#section-15.6.1', 'title': 'An error occurred while processing your request.', 'status': 500, 'traceId': '00-f04ee441ef62aeafe91a62eabbc1babd-d7a15648ed5c1a7a-03'}, 'correlacao': 'f04ee441ef62aeafe91a62eabbc1babd'}
+OK R1 POST JSON válido e inválido {'local': '/api/tarefas/5', 'erros': {'Titulo': ['Informe o título.']}}
+OK R3 migrations, projeção e transação com rollback {'migrations': ['20261123183353_Inicial', '20261123183359_Identidade'], 'seed': 4, 'painel': {'ef': [{'situacao': 'Aberta', 'total': 4}], 'ado': [{'situacao': 'Aberta', 'total': 4}], 'iguais': True}, 'auditoriasAntes': 0, 'auditoriasDepois': 1, 'conflito': 'A tarefa mudou. Recarregue os dados antes de tentar novamente.'}
+OK R4 contrato REST {'paginaVazia': {'itens': [], 'pagina': 1, 'tamanho': 10, 'total': 0}, 'filtros': {'itens': [{'id': 3, 'titulo': 'Revisar laboratório', 'situacao': 'Concluida', 'prioridade': 'Normal'}], 'pagina': 1, 'tamanho': 10, 'total': 1}, 'recursoAusente': {'type': 'https://tools.ietf.org/html/rfc9110#section-15.5.5', 'title': 'Tarefa inexistente.', 'status': 404, 'traceId': '00-5641660232405b0471003557f2eb8a53-3dc0ef061a766c9d-03'}, 'validacao': {'Titulo': ['Informe o título.', 'Use entre 3 e 100 caracteres.']}, 'location': 'https://localhost:7143/api/tarefas/6', 'exclusao': 204}
+OK R6 identidade e autorização {'anonimo': 401, 'usuarioOutraEquipe': 403, 'adminOutraEquipe': 204, 'perfilAutorizado': 200, 'cookieRevogado': 401, 'semCsrf': 400}
+OK R7 retry, circuito e Health Checks {'tentativasTransitoria': 2, 'status400SemRetry': 1, 'chamadasAntesDoCircuito': 1, 'readinessFalha': 503, 'liveness': 200}
+OK R7 carga limitada e cache {'http200': 5, 'http429': 3, 'cache': 'mesmo conteúdo entre clientes anônimos e identificador trocado após criação'}
+TESTE de navegação no Chromium
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> portal-tarefas-frontend@1.0.0 test
+> node --test tests/*.test.mjs
+
+✔ visitante observa estados, filtros, página por URL e contrato OpenAPI (7732.779882ms)
+✔ usuário comum usa telas MVC, validação Razor e cadastro React (1242.149991ms)
+✔ administrador restaura sessão, retorna ao formulário e encerra acesso (364.105938ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 9734.236976
+TESTE deliberadamente reprovado antes da publicação.
+
+Código de saída: 1
+Gate confirmado: não houve PUBLISH nem artefatos.

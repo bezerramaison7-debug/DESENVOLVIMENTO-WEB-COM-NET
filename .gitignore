@@ -1,0 +1,12 @@
+**/bin/
+**/obj/
+**/node_modules/
+**/dist/
+**/*.db*
+*.pfx
+.env
+*.user
+PortalTarefas.Web/wwwroot/index.html
+PortalTarefas.Web/wwwroot/assets/
+__pycache__/
+artifacts/

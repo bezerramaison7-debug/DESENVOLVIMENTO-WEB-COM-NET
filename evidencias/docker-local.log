@@ -1,0 +1,3 @@
+time="2026-11-23T15:35:33.066025444-03:00" level=info msg="Starting up"
+time="2026-11-23T15:35:33.067834032-03:00" level=warning msg="could not change group ./docker-lab/docker.sock to docker: group docker not found"
+failed to load listeners: can't create unix socket ./docker-lab/docker.sock: listen unix ./docker-lab/docker.sock: socket: operation not permitted

@@ -1,0 +1,3 @@
+SHA-256: 2cc94f186438bfc96c2ef835ae5ff6721876e85f45590690e62f835a14698d07
+Arquivo gerado: portal-75905c2a67a7accfac983e5f3771d5f0b38f6e0d.tar.gz
+O pipeline gerou este arquivo localmente e executou o smoke da publicação. O ZIP contém o código para reproduzir a publicação.

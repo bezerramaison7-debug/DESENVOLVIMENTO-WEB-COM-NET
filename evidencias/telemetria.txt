@@ -1,0 +1,30 @@
+Entrada GET /diagnostico/falha | correlação=dc22675892d3c760c14d82fb7a6fcc69
+Saída GET /diagnostico/falha 500 8.9477 | correlação=dc22675892d3c760c14d82fb7a6fcc69
+Saída POST /api/tarefas 201 12.4073 | correlação=c68ae22e69b414145b6218e15c9ff68b
+Resilience event occurred. EventName: 'OnRetry', Source: 'dependencia-standard//Standard-Retry', Operation Key: '', Result: '503'
+Resilience event occurred. EventName: 'OnCircuitOpened', Source: 'dependencia-standard//Standard-CircuitBreaker', Operation Key: '', Result: '503'
+Circuito da dependência aberto | correlação=d0eb92cc854eea9f68b926af566f105c
+Circuito da dependência aberto | correlação=f37cc8edae7b46ef51552354fe682811
+Circuito da dependência aberto | correlação=4db70a5c5d930b2114a5e26221dddd4b
+Circuito da dependência aberto | correlação=330bd826d9e89f43216b77553dd166cd
+Circuito da dependência aberto | correlação=08d256a51dd2c3200c7618590daf4526
+Saída POST /api/tarefas 201 4.2101 | correlação=66e9ccc57fde866f494e655e17b7ce4f
+MVC TarefasController.Index (PortalTarefas.Web) ViewResult True 6.7281 | correlação=6425c46573ac5707d3a9927a436b82b8
+MVC TarefasController.Details (PortalTarefas.Web) ViewResult True 1.115 | correlação=5c2586a2a8dff6f437840788d9771dc0
+MVC TarefasController.Details (PortalTarefas.Web) NotFoundResult True 0.6719 | correlação=6a6cc27af7c7dd82551367649aecfa7f
+MVC TarefasController.Login (PortalTarefas.Web) ViewResult True 0.0198 | correlação=fb6e21025009a0fdfbae62829c53adc7
+MVC TarefasController.Login (PortalTarefas.Web) RedirectToActionResult True 33.4752 | correlação=ccde70a11da479307815db826856a31a
+MVC TarefasController.Index (PortalTarefas.Web) ViewResult True 0.1831 | correlação=921b639f5020859d920d79af33e5b88f
+MVC TarefasController.Create (PortalTarefas.Web) ViewResult True 0.0311 | correlação=5a6ae9962bcdd786f35a7337c4ad65b3
+MVC TarefasController.Create (PortalTarefas.Web) ViewResult False 0.3189 | correlação=55114730dce282513cc7f4dc0224fc3f
+MVC TarefasController.Create (PortalTarefas.Web) ViewResult False 0.0327 | correlação=6fb940e62e501a743abc2735d35ebb10
+MVC TarefasController.Create (PortalTarefas.Web) RedirectToActionResult True 2.4951 | correlação=7bfd2d7936acf678cbb924f0f695f839
+MVC TarefasController.Details (PortalTarefas.Web) ViewResult True 0.5376 | correlação=285dc97bd1ca793d55b7356ab9167223
+MVC TarefasController.Edit (PortalTarefas.Web) ViewResult True 1.0438 | correlação=68ba85c8cf859245007c89e67f80b62e
+MVC TarefasController.Edit (PortalTarefas.Web) RedirectToActionResult True 2.8426 | correlação=33215263261e7db480cf46ed4afa3c16
+MVC TarefasController.Details (PortalTarefas.Web) ViewResult True 0.25 | correlação=13c82d11caf7ca50a2692688272bbaf2
+Saída POST /api/tarefas 201 3.9343 | correlação=7c17f2431d97ee934c0ff076b231a7f1
+Activity.TraceId correlacionado ao POST /api/tarefas 201: 66e9ccc57fde866f494e655e17b7ce4f
+Activity.DisplayName:        tarefas.criar
+Metric Name: portal.tarefas.criadas, Metric Type: LongSum
+Metric Name: portal.http.duracao, Unit: ms, Metric Type: Histogram

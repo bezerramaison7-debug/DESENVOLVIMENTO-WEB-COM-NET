@@ -1,0 +1,3 @@
+Rotas públicas e de escrita da revisão anterior preservadas.
+Operação adicionada: GET /api/tarefas/minhas.
+A revisão final regenerou o cliente e o comparou com o OpenAPI publicado.

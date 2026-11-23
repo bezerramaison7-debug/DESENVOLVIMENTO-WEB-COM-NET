@@ -1,0 +1,41 @@
+name: Portal de Tarefas
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  verificacao:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.404'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.22.3'
+          cache: npm
+          cache-dependency-path: PortalTarefas.Frontend/package-lock.json
+      - run: npm --prefix PortalTarefas.Frontend ci --no-audit --no-fund
+      - run: |
+          cd PortalTarefas.Frontend
+          npx --no-install playwright install --with-deps chromium
+      - run: ./tests/pipeline.sh
+        env:
+          PORTAL_EVIDENCIAS: ${{ runner.temp }}/evidencias
+      - uses: actions/upload-artifact@v4
+        with:
+          name: portal-${{ github.sha }}
+          path: |
+            artifacts/portal-*.tar.gz
+            ${{ runner.temp }}/evidencias/
+  imagem:
+    needs: verificacao
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./tests/imagem.sh
+        env:
+          REVISAO: ${{ github.sha }}

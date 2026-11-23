@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>Portal de Tarefas · MVC</title>
+<link rel="stylesheet" href="/mvc.css"></head>
+<body><header><nav><a asp-controller="Tarefas" asp-action="Index">Portal de Tarefas · MVC</a>
+<a asp-controller="Tarefas" asp-action="Create">Nova tarefa</a>
+@if (User.Identity?.IsAuthenticated != true) { <a asp-controller="Tarefas" asp-action="Login">Entrar</a> }
+<a href="/tarefas">Interface React</a></nav></header>
+<main>@RenderBody()</main></body></html>
