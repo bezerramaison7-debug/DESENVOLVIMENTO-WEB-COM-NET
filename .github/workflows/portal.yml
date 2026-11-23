@@ -18,10 +18,11 @@ jobs:
           node-version: '24.22.3'
           cache: npm
           cache-dependency-path: PortalTarefas.Frontend/package-lock.json
-      - run: npm --prefix PortalTarefas.Frontend ci --no-audit --no-fund
-      - run: |
-          cd PortalTarefas.Frontend
-          npx --no-install playwright install --with-deps chromium
+      - name: Usar Chrome do runner
+        run: |
+          chrome="$(command -v google-chrome)"
+          "$chrome" --version
+          echo "CHROMIUM_PATH=$chrome" >> "$GITHUB_ENV"
       - run: ./tests/pipeline.sh
         env:
           PORTAL_EVIDENCIAS: ${{ runner.temp }}/evidencias
